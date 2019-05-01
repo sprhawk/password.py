@@ -35,6 +35,13 @@ if __name__ == '__main__':
     parser.set_defaults(count=DEFAULT_LEN)
     args = parser.parse_args()
 
+    # how to use argparse to handle this?
+    if not (args.alphabet or args.uppercase or args.lowercase) \
+       and not args.digit and not args.symbol:
+        args.alphabet = True
+        args.digit = True
+        args.symbol = True
+        
     samples = []
     if args.alphabet:
         samples.append(UPPERCASE)
